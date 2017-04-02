@@ -145,6 +145,10 @@ begin
   result := result + 'data source=' + datasource + ';';
   result := result + 'Initial Catalog=' + initialcatalog + ';';
   result := result + 'provider=' + 'SQLOLEDB.1' + ';';
+  //Persist Security Info,表示ADO在数据库连接成功后是否保存密码信息
+  //ADO缺省为True,ADO.net缺省为False
+  //程序中会传ADOConnection信息给TADOLYQuery,故设置为True
+  result := result + 'Persist Security Info=True;';
   if ifIntegrated then
     result := result + 'Integrated Security=SSPI;';
 end;
